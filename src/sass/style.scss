@@ -1,0 +1,390 @@
+@import "fonts";
+@import "variables";
+@import "global";
+@import "~bootstrap/scss/bootstrap";
+@import "../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
+// --------------------------------------
+
+// news cards -------------------------------
+.card-container {
+    display: flex;
+    flex-grow: 1;
+}
+
+.card-container-multiple {
+    display: flex;
+    flex-direction: column;
+}
+
+.category {
+    &-title {
+        margin-bottom: 20px;
+
+        @include media-breakpoint-down(md) {
+            margin: 0;
+        }
+    }
+
+    &-1 {
+        &-title {
+            color: $violet;
+        }
+        .card-top-info {
+            background-color: $violet;
+        }
+        .card-bottom-info {
+            .card-sub-title {
+                color: $violet;
+                border-color: $violet;
+            }
+        }
+        .card-no-image {
+            .card-top-info {
+                color: $violet;
+                border-color: $violet;
+            }
+        }
+    }
+
+    &-2 {
+        &-title {
+            color: $blue;
+        }
+        .card-top-info {
+            background-color: $blue-darker;
+            color: $blue-darker !important;
+            border-color: $blue-darker !important;
+        }
+        .card-bottom-info {
+            .card-sub-title {
+                color: $blue-darker;
+                border-color: $blue-darker;
+            }
+        }
+        .card-no-image {
+            .card-top-info {
+                color: $blue-darker;
+                border-color: $blue-darker;
+            }
+        }
+    }
+
+    &-3 {
+        &-title {
+            color: $green;
+        }
+        .card-top-info {
+            background-color: $green-darker;
+        }
+        .card-bottom-info {
+            .card-sub-title {
+                color: $green-darker;
+                border-color: $green-darker;
+            }
+        }
+        .card-no-image {
+            .card-top-info {
+                color: $green-darker;
+                border-color: $green-darker;
+            }
+        }
+    }
+}
+
+.text-small {
+    color: $grey-dark;
+}
+
+// default card
+.card {
+    border-radius: 0;
+    border: none;
+
+    @include media-breakpoint-down(md) {
+        margin: 15px 0;
+    }
+
+    a.card-body {
+        color: $dark;
+        background: none;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        width: auto;
+
+        h2,
+        h3 {
+            width: fit-content;
+            border-bottom: 4px solid $light;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: $dark;
+
+            h2,
+            h3 {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    img.card-img-top {
+        border-radius: 0;
+    }
+
+    .card-title {
+        margin: 0 0 5px 0;
+    }
+
+    .card-sub-title {
+        font-family: "Bebas Neue", cursive;
+        @include rem(letter-spacing, 2.5px);
+        @include rem(font-size, 20px);
+
+        @include media-breakpoint-down(sm) {
+            @include rem(font-size, 18px);
+        }
+    }
+}
+
+// Badge top
+.card-top-info {
+    background-color: $orange;
+    width: fit-content;
+    padding: 3px 8px 0px;
+    color: $white;
+    margin: -40px 0 20px -20px;
+
+    .card-sub-title {
+        font-family: "Bebas Neue", cursive;
+        @include rem(letter-spacing, 2.5px);
+        @include rem(font-size, 20px);
+
+        @include media-breakpoint-down(sm) {
+            @include rem(font-size, 18px);
+        }
+    }
+}
+
+// badge bottom
+.card-bottom-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 0 0;
+
+    .card-sub-title {
+        color: $dark;
+        margin: 5px 0 0 0;
+        border-left: 3px solid $dark;
+        padding: 0 0 0 5px;
+    }
+}
+
+// card without image
+.card-no-image {
+    margin: 0 0 20px 0;
+    flex-grow: 1;
+
+    &:last-of-type {
+        margin: 0;
+    }
+
+    @include media-breakpoint-down(md) {
+        margin: 25px 0;
+
+        &:last-of-type {
+            margin: 0;
+        }
+    }
+
+    div.card-body {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        .card-title {
+            @include rem(font-size, 20px);
+
+            @include media-breakpoint-down(sm) {
+                @include rem(font-size, 18px);
+            }
+        }
+
+        .card-top-info {
+            background-color: $white;
+            color: $dark;
+            margin: 0 0 10px 0;
+            border-left: 2.5px solid $dark;
+            padding: 0 0 0 5px;
+
+            .card-sub-title {
+                @include rem(font-size, 18px);
+
+                @include media-breakpoint-down(sm) {
+                    @include rem(font-size, 16px);
+                }
+            }
+        }
+    }
+}
+
+// card with image left
+.card-image-left {
+    margin: 0 0 20px 0;
+    display: flex;
+    flex-grow: 1;
+
+    &:last-of-type {
+        margin: 0;
+    }
+
+    @include media-breakpoint-down(md) {
+        margin: 25px 0;
+    }
+    @include media-breakpoint-down(sm) {
+        flex-direction: column;
+    }
+
+    img {
+        height: 100%;
+    }
+
+    .card-img-top {
+        width: 40%;
+        border: none;
+        border-radius: 0;
+
+        @include media-breakpoint-down(sm) {
+            width: 100%;
+        }
+    }
+
+    .card {
+        width: 100%;
+
+        @include media-breakpoint-down(md) {
+            margin: 0;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .card-title {
+                @include rem(font-size, 20px);
+
+                @include media-breakpoint-down(sm) {
+                    @include rem(font-size, 18px);
+                }
+            }
+
+            .card-bottom-info {
+                margin: 5px 0 0 0;
+
+                .card-sub-title {
+                    @include rem(font-size, 18px);
+                }
+            }
+        }
+    }
+}
+// ---------------------------------------
+
+// pop-up -------------------------------
+.pop-up {
+    border-radius: 0;
+    border: none;
+    padding: 10px;
+
+    .modal-header {
+        border: none;
+
+        .modal-title {
+            border-left: 4px solid $orange-darker;
+            padding: 0 0 0 11px;
+            color: $orange-darker;
+        }
+
+        .close {
+            font-size: 2rem;
+            opacity: 1;
+        }
+    }
+
+    .modal-body {
+        color: $black;
+        margin: 0;
+    }
+
+    .modal-footer {
+        border: none;
+    }
+}
+// ---------------------------------------
+
+// search -------------------------------
+.search {
+    border-bottom: 3px solid $dark;
+    max-height: 15px;
+
+    height: auto;
+    overflow: hidden;
+    -webkit-transition: max-height 1s ease-in-out;
+    -moz-transition: max-height 1s ease-in-out;
+    transition: max-height 1s ease-in-out;
+}
+
+.search-form {
+    padding: 40px 0;
+    width: fit-content;
+    margin: 0 auto;
+
+    input.form-control {
+        border-radius: 0;
+        border: none;
+        border-bottom: 3px solid $dark;
+        margin: 0 0 0 15px;
+        min-width: 15rem;
+    }
+}
+
+.show-search {
+    max-height: 10rem;
+}
+// ---------------------------------------
+
+// image with text on it -------------------------------
+.news-header {
+    margin-top: 2rem;
+
+    .news-image {
+        background-position: center;
+        background-size: initial;
+        background-repeat: no-repeat;
+        background-color: $dark; // fallback colour if images does not load!
+        height: 100%;
+        min-height: 33rem;
+
+        h2 {
+            @include rem(font-size, 110px);
+            color: $light;
+            padding: 10rem 5% 5rem;
+            height: 100%;
+            background-image: -webkit-gradient(linear, left bottom, right top, from($black), to(rgba(10, 19, 43, 0)));
+            background-image: -webkit-linear-gradient(left bottom, $black, rgba(10, 19, 43, 0));
+            background-image: -o-linear-gradient(left bottom, $black, rgba(10, 19, 43, 0));
+            background-image: linear-gradient(to right top, $black, rgba(10, 19, 43, 0));
+
+            @include media-breakpoint-down(md) {
+                @include rem(font-size, 90px);
+            }
+            @include media-breakpoint-down(sm) {
+                @include rem(font-size, 70px);
+            }
+        }
+    }
+}
+// ---------------------------------------

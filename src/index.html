@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Prototype Newspaper Website</title>
+        <meta name="description" content="This prototype demonstrates an accessible implementation of components for a newspaper website.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="referrer" content="same-origin">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <!-- Disable tap highlight on IE -->
+        <meta name="msapplication-tap-highlight" content="no">
+
+        <!-- Add to homescreen for Chrome on Android -->
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="application-name" content="Web Starter Kit">
+        <link rel="icon" type="image/png" sizes="32x32" href="<%=require('./images/favicon/favicon-32x32.png')%>">
+        <link rel="icon" type="image/png" sizes="16x16" href="<%=require('./images/favicon/favicon-16x16.png')%>">
+
+        <!-- Add to homescreen for Safari on iOS -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="Newspaper Website Prototype">
+        <link rel="apple-touch-icon" sizes="180x180" href="<%=require('./images/favicon/apple-touch-icon.png')%>">
+        <link rel="mask-icon" href="<%=require('./images/favicon/safari-pinned-tab.svg')%>" color="#5bbad5">
+
+        <!-- Tile icon for Win8 -->
+        <meta name="msapplication-TileImage" content="<%=require('./images/favicon/mstile-150x150.png')%>">
+        <meta name="msapplication-TileColor" content="#603cba">
+
+        <!-- Color the status bar on mobile devices -->
+        <meta name="theme-color" content="#f5f5f5">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">  
+    </head>
+
+    <body>
+        <header>
+            <!-- Skip Link -->
+            <a href="#a11y-daily" class="skip-link-btn">Skip to main content</a>
+            <!-- Nav -->
+            <div class="fixed-top container-fluid header-container">
+                <div class="row header-container__row">
+                    <div class="col-md-10">
+                        <nav class="navbar navbar-expand-lg navbar-light container-fluid navbar-1">
+                            <div class="row">
+                                <div class="col-md-7 col-sm-6 logo-section">
+                                    <!-- Logo -->
+                                    <h1>
+                                        <a class="navbar-brand" href="#">
+                                            Prototype
+                                        </a>
+                                        <span>&mdash; for newspaper websites</span>
+                                    </h1>
+                                </div>
+                                <div class="col-md-5 col-sm-6 nav-icon-section">
+                                    <!-- Pop-Up Button-->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                                        Cookie Info
+                                    </button>
+                                    
+                                    <!-- Search Button -->
+                                    <button type="button" class="btn" id="searchIcon" aria-expanded="false">
+                                        <span class="hide-visually">
+                                            Search
+                                        </span>
+                                        <i class="fas fa-search" aria-hidden="true">
+                                            <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                                                <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                                            </svg>
+                                        </i>
+                                    </button>
+                                    
+                                    <!-- Mobile Burger Menu -->
+                                    <button class="navbar-toggler hamburger hamburger--collapse" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="hamburger-box">
+                                            <span class="hamburger-inner"></span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="col-md-2 nav-burger-section desktop-only">
+                        <nav class="navbar navbar-light navbar-2">
+                            <!-- Burger Menu -->
+                            <button class="navbar-toggler hamburger hamburger--collapse" id="hamburger-icon" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Additional menu">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- </nav> -->
+                        <nav class="navbar navbar-expand-lg navbar-light container-fluid navbar-3">
+                            <div class="col-md-12 nav-links-section">
+                                <!-- Navbar content -->
+                                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#a11y-daily">
+                                                Web Accessibility Daily
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#top-news">
+                                                Top News
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#wcag-rec">
+                                                WCAG Recommendations
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="https://www.microsoft.com/design/inclusive/">
+                                            Inclusive Design
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="https://www.w3.org/TR/WCAG21/">
+                                                WCAG 2.1
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="https://www.w3.org/">
+                                            W3C
+                                            </a>
+                                        </li>
+                                        <!-- Dropdown -->
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                More
+                                                <span class="hide-visually">
+                                                    menu points
+                                                </span>
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                                <a class="dropdown-item" href="https://developers.google.com/web/tools/lighthouse">
+                                                    Lighthouse
+                                                </a>
+                                                <a class="dropdown-item" href="https://wave.webaim.org/">
+                                                    WAVE
+                                                </a>
+                                                <a class="dropdown-item" href="https://validator.w3.org/#validate_by_input">
+                                                    W3C Markup Validation
+                                                </a>
+                                                <a class="dropdown-item" href="https://khan.github.io/tota11y/">
+                                                    Tota11y
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul class="navbar-nav mobile-only">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="https://a11yproject.com/">
+                                                A11y Project
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="https://webaim.org/projects/million/#wcag">
+                                                WebAim 1 Million
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="https://developer.mozilla.org/de//">
+                                                MDN
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 desktop-only">
+                        <!-- Burger Content -->
+                        <div class="collapse" id="navbarToggleExternalContent">
+                            <div class="bg-light inner-burger-content">
+                                <p>
+                                    Some more helpful links
+                                </p>
+                                <nav class="navbar navbar-expand-lg navbar-light container-fluid navbar-4">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="https://a11yproject.com/" id="first-burger-item">
+                                                A11y Project
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="https://webaim.org/projects/million/#wcag">
+                                                WebAim 1 Million
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="https://developer.mozilla.org/de//">
+                                                MDN
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <!-- Search -->
+                        <div class="container-fluid search" id="searchToggle">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="search-form form-inline d-flex justify-content-center">
+                                        <label for="search-input">
+                                            Search:
+                                        </label>
+                                        <input class="form-control form-control-md" type="search" tabIndex="-1" placeholder="Only a demo..." id="search-input" aria-label="Search">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- News Header -->
+            <section class="news-header container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="news-image" title ="Photo by Goran Ivos on Unsplash" style="background-image: url(<%=require('./images/header.jpg')%>)">
+                            <h2>
+                                Look at the code of this website & learn!
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Area 1 -->
+            <section class="content category-1 container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="anchor" id="a11y-daily"></span>
+                        <h2 class="category-title category-1-title">Web Accessibility Daily</h2>
+                    </div>
+
+                    <!-- News Card -->
+                    <div class="col-md-4 card-container">
+                        <div class="card">
+                            <a href="https://www.w3.org/WAI/fundamentals" class="card-body card-link" target="_blank" rel="noopener noreferrer">
+                                <img src=<%=require("./images/wheelchair.jpg")%> class="card-img-top" alt="wheelchair icon painted on a wall" title="Photo by marianne bos on Unsplash">
+                                <div class="card-body">
+                                    <div class="card-top-info">
+                                        <span class="card-sub-title">A11y Basics</span>
+                                    </div>
+                                    <h3 class="card-title">What is Web Accessibility</h3>
+                                    <p class="card-text">The overall goal of web accessibility is to provide information and services to as many people as possible.</p>
+                                    
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- News Card -->
+                    <div class="col-md-4 card-container">
+                        <div class="card">
+                            <a href="https://github.com/danikubesch/accessibile-prototype" class="card-body card-link" target="_blank" rel="noopener noreferrer">
+                                <img src=<%=require("./images/newspapers.jpg")%> class="card-img-top" alt="A stack of newspapers" title="Photo by Utsav Srestha on Unsplash">
+                                <div class="card-body">
+                                    <div class="card-top-info">
+                                        <span class="card-sub-title">Scandal</span>
+                                    </div>
+                                    <h3 class="card-title">100% of newspaper websites not accessible</h3>
+                                    <p class="card-text">All of the five analysed newspaper websites are not completely accessible to users with disabilities.</p>
+                                    
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- News Card -->
+                    <div class="col-md-4 card-container">
+                        <div class="card">
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" class="card-body card-link" target="_blank" rel="noopener noreferrer">
+                                <img src=<%=require("./images/demo-pic-1.jpg")%> class="card-img-top" alt="Laptop displaying code on a desk" title="Photo by Christopher Gower on Unsplash">
+                                <div class="card-body">
+                                    <div class="card-top-info">
+                                        <span class="card-sub-title">Step-By-Step</span>
+                                    </div>
+                                    <h3 class="card-title">How to code accessible websites in 2020</h3>
+                                    <p class="card-text">There are some steps you can follow to make your websites more accessible. The WCAG standards are a good resource ... </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Area 2 -->
+            <section class="content category-2 container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="anchor" id="top-news"></span>
+                        <h2 class="category-title category-2-title">Top News</h2>
+                    </div>
+
+                    <div class="col-md-4 card-container">
+                        <!-- News Card -->
+                        <div class="card">
+                            <a href="https://a11yproject.com/posts/operating-system-and-browser-accessibility-display-modes/" class="card-body card-link" target="_blank" rel="noopener noreferrer">
+                                <img src=<%=require("./images/grayscale.jpg")%> class="card-img-top" alt="birds sitting on a roof and flying" title="Photo by Philippe Leone on Unsplash">
+                                <div class="card-body">
+                                    <h3 class="card-title">View a website in grayscale mode</h3>
+                                    <p class="card-text">When testing a website in grayscale mode, elements that work with colour only will be revealed to the manual tester.</p>
+
+                                    <div class="card-bottom-info">
+                                        <span class="card-sub-title">Testing 101</span>
+                                        <p class="card-text">
+                                            <small class="text-small">no comments</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 card-container-multiple">
+                        <!-- News Card -->
+                        <div class="card card-no-image">
+                            <a href="https://a11yproject.com/posts/a11y-and-other-numeronyms/" class="card-body card-link" target="_blank" rel="noopener noreferrer">
+                                <div class="card-body">
+
+                                    <div class="card-top-info">
+                                        <span class="card-sub-title">Facts</span>
+                                    </div>
+                                    <h3 class="card-title">The a11y abbreviation</h3>
+                                    <p class="card-text">
+                                        <small class="text-small">29 comments</small>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- News Card -->
+                        <div class="card card-no-image">
+                            <a href="https://wave.webaim.org/" class="card-body card-link" target="_blank" rel="noopener noreferrer">
+                                <div class="card-body">
+
+                                    <div class="card-top-info">
+                                        <span class="card-sub-title">Testing 101</span>
+                                    </div>
+                                    <h3 class="card-title">WAVE - a web accessibility evaluation tool</h3>
+                                    <p class="card-text">
+                                        <small class="text-small">4 comments</small>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- News Card -->
+                        <div class="card card-no-image">
+                            <a href="https://www.microsoft.com/design/inclusive/" class="card-body card-link" target="_blank" rel="noopener noreferrer">
+                                <div class="card-body">
+
+                                    <div class="card-top-info">
+                                        <span class="card-sub-title">Facts</span>
+                                    </div>
+                                    <h3 class="card-title">Permanent, Temporary and Situational Impairments</h3>
+                                    <p class="card-text">
+                                        <small class="text-small">1 comment</small>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 card-container-multiple">
+                        <!-- News Card -->
+                        <div class="card card-no-image">
+                            <a href="https://developers.google.com/web/tools/lighthouse" class="card-body card-link"  target="_blank" rel="noopener noreferrer">
+                                <div class="card-body">
+
+                                    <div class="card-top-info">
+                                        <span class="card-sub-title">Testing 101</span>
+                                    </div>
+                                    <h3 class="card-title">Lighthouse - a web accessibility evaluation tool</h3>
+                                    <p class="card-text">
+                                        <small class="text-small">17 comments</small>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- News Card -->
+                        <div class="card card-no-image">
+                            <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/#important" class="card-body card-link" target="_blank" rel="noopener noreferrer">
+                                <div class="card-body">
+
+                                    <div class="card-top-info">
+                                        <span class="card-sub-title">Facts</span>
+                                    </div>
+                                    <h3 class="card-title">The relevance of web accessibility</h3>
+                                    <p class="card-text">
+                                        <small class="text-small">69 comments</small>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                            
+                        <!-- News Card -->
+                        <div class="card card-no-image">
+                            <a href="https://validator.w3.org/" class="card-body card-link" target="_blank" rel="noopener noreferrer">
+                                <div class="card-body">       
+                                    <div class="card-top-info">
+                                        <span class="card-sub-title">Testing 101</span>
+                                    </div>
+                                    <h3 class="card-title">Check your HTML with the W3C Markup Validation Service</h3>
+                                    <p class="card-text">
+                                        <small class="text-small">21 comments</small>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Area 3 -->
+            <section class="content category-3 container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="anchor" id="wcag-rec"></span>
+                        <h2 class="category-title category-3-title">WCAG Recommendations</h2>
+                    </div>
+
+                    <!-- News Card -->
+                    <div class="col-md-6 card-container">
+                        <div class="card">
+                            <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum" class="card-body card-link" target="_blank" rel="noopener noreferrer">
+                                <img src=<%=require("./images/contrast.jpg")%> class="card-img-top" alt="Sliced orange painted blue on the outside" title="Photo by davisco on Unsplash">
+                                <div class="card-body">
+                                    <h3 class="card-title">Contrast ratio and colour blindness</h3>
+                                    <p class="card-text">According to the WCAG 2.1, for the accessibility level AA, a contrast ratio of at least 4.5:1 is needed for text and images of a text.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- News Card -->
+                    <div class="col-md-6 card-container-multiple">
+                        <div class="card-image-left">
+                            <img src=<%=require("./images/notes.jpg")%> class="card-img-top" alt="People sitting writing down notes a " title="Photo by The Climate Reality Project on Unsplash">
+                            <div class="card">
+                                <a href="https://www.w3.org/TR/WCAG21/" class="card-body card-link" target="_blank" rel="noopener noreferrer">
+                                    <div class="card-body">
+                                        <h3 class="card-title">The new WCAG 2.1</h3>
+                                        <div class="card-bottom-info">
+                                            <span class="card-sub-title">WCAG</span>
+                                            <p class="card-text">
+                                                <small class="text-small">7 comments</small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- News Card -->
+                        <div class="card-image-left">
+                            <img src=<%=require("./images/chart.jpg")%> class="card-img-top" alt="Paper with a drawn on chart lying on a table" title="Photo by Isaac Smith on Unsplash">
+                            <div class="card">
+                                <a href="https://www.w3.org/WAI/WCAG21/Understanding/conformance#levels" class="card-body card-link" target="_blank" rel="noopener noreferrer">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Rating system: A vs. AA vs. AAA</h3>
+                                        <div class="card-bottom-info">
+                                            <span class="card-sub-title">WCAG</span>
+                                            <p class="card-text">
+                                                <small class="text-small">35 comments</small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- News Card -->
+                        <div class="card-image-left">
+                            <img src=<%=require("./images/keyboard.jpg")%> class="card-img-top" alt="Keyboard" title="Photo by Sergi Kabrera on Unsplash">
+                            <div class="card">
+                                <a href="https://www.w3.org/TR/WCAG21/#keyboard-accessible" class="card-body card-link" target="_blank" rel="noopener noreferrer">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Keyboard accessibility</h3>
+                                        <div class="card-bottom-info">
+                                            <span class="card-sub-title">WCAG</span>
+                                            <p class="card-text">
+                                                <small class="text-small">no comments</small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Pop-Up -->
+        <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content pop-up">
+                  <div class="modal-header">
+                    <h2 class="modal-title" id="staticBackdropLabel">
+                        Cookie Information
+                    </h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                            &times;
+                        </span>
+                    </button>
+                  </div>
+                  <p class="modal-body">
+                    This website does not collect any cookies as its purpose is to demonstrate accessible component implementation.
+                  </p>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Okay
+                    </button>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 footer-left">
+                        <p>This prototype demonstrates an implementation of common components on a newspaper website, but with accessibility in mind.</p>
+                    </div>
+                    <div class="col-md-6 footer-right">
+                        <p class="small">
+                            Favicon made by <a href="https://www.flaticon.com/authors/freepik">Freepik</a>
+                        </p>
+                        <p>© 2020 Daniela Kubesch</p>
+                        <p>
+                            For more info, follow me on <a href="https://twitter.com/danikubesch" target="_blank" rel="noopener noreferrer">Twitter</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        
+        <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+    </body>
+
+</html>
