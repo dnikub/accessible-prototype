@@ -2,7 +2,7 @@
 #### by Daniela Kubesch
 
 An example page for an accessible newspaper home page.
-
+A deployed version can be found here: https://ba2-newspaper-prototype.netlify.app
 
 ## A webpack 4 based setup
 
